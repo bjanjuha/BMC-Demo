@@ -1,0 +1,36 @@
+{
+  "DeployDescriptor":
+  [
+    {
+      "Property" : "ControlmServer",
+      "Assign"   : "bsj-gcp-ctrlm-env"
+    },
+    {
+      "Property" : "Application",
+      "Replace"  : [ {"DEV_Application(.*)" : "PRD_Application$1"} ]
+    },
+    {
+      "Property" : "SubApplication",
+      "Replace"  : [ {"DEV_SubApplication(.*)" : "PRD_SubApplication$1"} ]
+    },
+    {
+      "ApplyOn"  :  {"Type":"Folder"},
+      "Property" : "@",
+      "Replace"  : [ {"DEV_PROMOTE_TO_PRD(.*)" : "PRD_PROMOTE$1"} ]
+    },
+    {
+      "ApplyOn"  :  {"Type":"Job"},
+      "Property" : "@",
+      "Replace"  : [ {"DEV_OS_JOB(.*)" : "PRD_OS_JOB$1"} ] 
+    },
+    {  
+      "Property" : "SiteStandard",
+      "Replace"  : [ {"DEV_Standard(.*)" : "PRD_Standard$1"} ]
+
+    },
+    {
+      "Property" : "Event",
+      "Replace"  : [ {"DEV_OS(.*)" : "PRD_OS$1"} ]
+      }
+  ]
+}
