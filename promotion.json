@@ -1,0 +1,214 @@
+{
+  "DEV_PROMOTE_TO_PRD": {
+    "Type": "SimpleFolder",
+    "ControlmServer": "bsj-gcp-ctrlm-env",
+    "SiteStandard": "DEV_Standard",
+    "OrderMethod": "Manual",
+    "DEV_OS_JOB1": {
+      "Type": "Job:Command",
+      "SubApplication": "DEV_SubApplication",
+      "Host": "bsj-gcp-ctrlm-env",
+      "CreatedBy": "bjanjuha",
+      "Description": "Test OS job - test change",
+      "RunAs": "bhupinder_janjuha",
+      "Application": "DEV_Application",
+      "Command": "dir c:\\",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB1-TO-DEV_OS_JOB2"
+          }
+        ]
+      }
+    },
+    "DEV_OS_JOB2": {
+      "Type": "Job:Command",
+      "SubApplication": "DEV_SubApplication",
+      "Host": "bsj-gcp-ctrlm-env",
+      "CreatedBy": "bjanjuha",
+      "Description": "Test OS job",
+      "RunAs": "bhupinder_janjuha",
+      "Application": "DEV_Application",
+      "Command": "dir c:\\",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB1-TO-DEV_OS_JOB2"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB4"
+          },
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB3"
+          },
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB4-468"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB1-TO-DEV_OS_JOB2"
+          }
+        ]
+      }
+    },
+    "DEV_OS_JOB3": {
+      "Type": "Job:Command",
+      "SubApplication": "DEV_SubApplication",
+      "Host": "bsj-gcp-ctrlm-env",
+      "CreatedBy": "bjanjuha",
+      "Description": "Test OS job",
+      "RunAs": "bhupinder_janjuha",
+      "Application": "DEV_Application",
+      "Command": "dir c:\\",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB3-TO-DEV_OS_JOB4"
+          },
+          {
+            "Event": "DEV_OS_JOB3-TO-DEV_OS_JOB5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB3"
+          }
+        ]
+      }
+    },
+    "DEV_OS_JOB4": {
+      "Type": "Job:Command",
+      "SubApplication": "DEV_SubApplication",
+      "Host": "bsj-gcp-ctrlm-env",
+      "CreatedBy": "bjanjuha",
+      "Description": "Test OS job",
+      "RunAs": "bhupinder_janjuha",
+      "Application": "DEV_Application",
+      "Command": "dir c:\\",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB4-468"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB4-TO-DEV_OS_JOB5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB2-TO-DEV_OS_JOB4-468"
+          }
+        ]
+      }
+    },
+    "DEV_OS_JOB5": {
+      "Type": "Job:Command",
+      "SubApplication": "DEV_SubApplication",
+      "Host": "bsj-gcp-ctrlm-env",
+      "CreatedBy": "bjanjuha",
+      "Description": "Test OS job",
+      "RunAs": "bhupinder_janjuha",
+      "Application": "DEV_Application",
+      "Command": "dir c:\\",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB3-TO-DEV_OS_JOB5"
+          },
+          {
+            "Event": "DEV_OS_JOB4-TO-DEV_OS_JOB5"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DEV_OS_JOB3-TO-DEV_OS_JOB5"
+          },
+          {
+            "Event": "DEV_OS_JOB4-TO-DEV_OS_JOB5"
+          }
+        ]
+      }
+    }
+  }
+}
