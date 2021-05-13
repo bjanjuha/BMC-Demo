@@ -9,7 +9,7 @@
       "SubApplication": "DEV_SubApplication",
       "Host": "bsj-gcp-ctrlm-env",
       "CreatedBy": "bjanjuha",
-      "Description": "Test OS job - test change",
+      "Description": "Test OS job - test changes",
       "RunAs": "bhupinder_janjuha",
       "Application": "DEV_Application",
       "Command": "dir c:\\",
