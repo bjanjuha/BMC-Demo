@@ -16,7 +16,7 @@
     {
       "ApplyOn"  :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace"  : [ {"DEV_PROMOTE_TO_PRD(.*)" : "PRD_PROMOTE$1"} ]
+	  "Replace"  : [ {"DEV_PROM_TO_PRD(.*)" : "PRD_PROM_TO_PRD$1"} ]
     },
     {
       "ApplyOn"  :  {"Type":"Job"},

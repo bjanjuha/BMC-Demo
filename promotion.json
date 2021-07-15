@@ -1,6 +1,6 @@
 {
-  "DEV_PROMOTE_TO_PRD": {
-    "Type": "SimpleFolder",
+  "DEV_PROM_TO_PRD": {
+    "Type": "Folder",
     "ControlmServer": "bsj-gcp-ctrlm-env",
     "SiteStandard": "DEV_Standard",
     "OrderMethod": "Manual",
